@@ -63,7 +63,7 @@ public class ParseException extends Exception {
   /**
    * This is the last token that has been consumed successfully.  If
    * this object has been created due to a parse error, the token
-   * following this token will (therefore) be the first error token.
+   * followng this token will (therefore) be the first error token.
    */
   public Token currentToken;
 
@@ -92,7 +92,7 @@ public class ParseException extends Exception {
                            int[][] expectedTokenSequences,
                            String[] tokenImage) {
 
-    StringBuilder expected = new StringBuilder();
+    StringBuffer expected = new StringBuffer();
     int maxSize = 0;
     for (int i = 0; i < expectedTokenSequences.length; i++) {
       if (maxSize < expectedTokenSequences[i].length) {
@@ -145,7 +145,7 @@ public class ParseException extends Exception {
    * string literal.
    */
   static String add_escapes(String str) {
-      StringBuilder retval = new StringBuilder();
+      StringBuffer retval = new StringBuffer();
       char ch;
       for (int i = 0; i < str.length(); i++) {
         switch (str.charAt(i))
@@ -188,4 +188,4 @@ public class ParseException extends Exception {
    }
 
 }
-/* JavaCC - OriginalChecksum=4e6a26538620f560a08cdb490e6fb3c2 (do not edit this line) */
+/* JavaCC - OriginalChecksum=e9725d6d8382b0042b6425b7fd869825 (do not edit this line) */

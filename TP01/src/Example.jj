@@ -9,16 +9,22 @@ public class Example {
 
 PARSER_END(Example)
 
+//symbols that must be skipped during the lexical analysis
 SKIP : {
 " " | "\t" | "\r"
 }
 
+//token definition (terminal symbols)
 TOKEN : {
-< INTEGER : (["0" - "9"])+ >
+< INTEGER : (["0" - "9"])+ > //inteiro só pode ser um dígito de 0 a 9
+| < OP : ("+" | "-") >
 | < LF : "\n">
 }
 
-void Aritm() : {}
+//grammar rule
+void Aritm() : {Token t1, t2, op;}
 {
-<INTEGER> ( ("+" | "-") <INTEGER> )? <LF>
+    t1=<INTEGER> { System.out.println("Integer 1: " + t1.image);}
+    (op=<OP> {System.out.println("Op: " + op.image);} t2=<INTEGER> {System.out.println("Integer 2: " + t2.image);})?
+    <LF>
 }

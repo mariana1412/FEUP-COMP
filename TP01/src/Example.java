@@ -6,30 +6,20 @@ public class Example implements ExampleConstants {
       parser.Aritm();
     }
 
-  static final public void Aritm() throws ParseException {
-    jj_consume_token(INTEGER);
+//grammar rule
+  static final public void Aritm() throws ParseException {Token t1, t2, op;
+    t1 = jj_consume_token(INTEGER);
+System.out.println("Integer 1: " + t1.image);
     switch ((jj_ntk==-1)?jj_ntk_f():jj_ntk) {
-    case 6:
-    case 7:{
-      switch ((jj_ntk==-1)?jj_ntk_f():jj_ntk) {
-      case 6:{
-        jj_consume_token(6);
-        break;
-        }
-      case 7:{
-        jj_consume_token(7);
-        break;
-        }
-      default:
-        jj_la1[0] = jj_gen;
-        jj_consume_token(-1);
-        throw new ParseException();
-      }
-      jj_consume_token(INTEGER);
+    case OP:{
+      op = jj_consume_token(OP);
+System.out.println("Op: " + op.image);
+      t2 = jj_consume_token(INTEGER);
+System.out.println("Integer 2: " + t2.image);
       break;
       }
     default:
-      jj_la1[1] = jj_gen;
+      jj_la1[0] = jj_gen;
       ;
     }
     jj_consume_token(LF);
@@ -45,13 +35,13 @@ public class Example implements ExampleConstants {
   static public Token jj_nt;
   static private int jj_ntk;
   static private int jj_gen;
-  static final private int[] jj_la1 = new int[2];
+  static final private int[] jj_la1 = new int[1];
   static private int[] jj_la1_0;
   static {
 	   jj_la1_init_0();
 	}
 	private static void jj_la1_init_0() {
-	   jj_la1_0 = new int[] {0xc0,0xc0,};
+	   jj_la1_0 = new int[] {0x20,};
 	}
 
   /** Constructor with InputStream. */
@@ -72,7 +62,7 @@ public class Example implements ExampleConstants {
 	 token = new Token();
 	 jj_ntk = -1;
 	 jj_gen = 0;
-	 for (int i = 0; i < 2; i++) jj_la1[i] = -1;
+	 for (int i = 0; i < 1; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -86,7 +76,7 @@ public class Example implements ExampleConstants {
 	 token = new Token();
 	 jj_ntk = -1;
 	 jj_gen = 0;
-	 for (int i = 0; i < 2; i++) jj_la1[i] = -1;
+	 for (int i = 0; i < 1; i++) jj_la1[i] = -1;
   }
 
   /** Constructor. */
@@ -103,7 +93,7 @@ public class Example implements ExampleConstants {
 	 token = new Token();
 	 jj_ntk = -1;
 	 jj_gen = 0;
-	 for (int i = 0; i < 2; i++) jj_la1[i] = -1;
+	 for (int i = 0; i < 1; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -121,7 +111,7 @@ public class Example implements ExampleConstants {
 	 token = new Token();
 	 jj_ntk = -1;
 	 jj_gen = 0;
-	 for (int i = 0; i < 2; i++) jj_la1[i] = -1;
+	 for (int i = 0; i < 1; i++) jj_la1[i] = -1;
   }
 
   /** Constructor with generated Token Manager. */
@@ -137,7 +127,7 @@ public class Example implements ExampleConstants {
 	 token = new Token();
 	 jj_ntk = -1;
 	 jj_gen = 0;
-	 for (int i = 0; i < 2; i++) jj_la1[i] = -1;
+	 for (int i = 0; i < 1; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -146,7 +136,7 @@ public class Example implements ExampleConstants {
 	 token = new Token();
 	 jj_ntk = -1;
 	 jj_gen = 0;
-	 for (int i = 0; i < 2; i++) jj_la1[i] = -1;
+	 for (int i = 0; i < 1; i++) jj_la1[i] = -1;
   }
 
   static private Token jj_consume_token(int kind) throws ParseException {
@@ -197,12 +187,12 @@ public class Example implements ExampleConstants {
   /** Generate ParseException. */
   static public ParseException generateParseException() {
 	 jj_expentries.clear();
-	 boolean[] la1tokens = new boolean[8];
+	 boolean[] la1tokens = new boolean[7];
 	 if (jj_kind >= 0) {
 	   la1tokens[jj_kind] = true;
 	   jj_kind = -1;
 	 }
-	 for (int i = 0; i < 2; i++) {
+	 for (int i = 0; i < 1; i++) {
 	   if (jj_la1[i] == jj_gen) {
 		 for (int j = 0; j < 32; j++) {
 		   if ((jj_la1_0[i] & (1<<j)) != 0) {
@@ -211,7 +201,7 @@ public class Example implements ExampleConstants {
 		 }
 	   }
 	 }
-	 for (int i = 0; i < 8; i++) {
+	 for (int i = 0; i < 7; i++) {
 	   if (la1tokens[i]) {
 		 jj_expentry = new int[1];
 		 jj_expentry[0] = i;
@@ -225,6 +215,7 @@ public class Example implements ExampleConstants {
 	 return new ParseException(token, exptokseq, tokenImage);
   }
 
+  static private int trace_indent = 0;
   static private boolean trace_enabled;
 
 /** Trace enabled. */
