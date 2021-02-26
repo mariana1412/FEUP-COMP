@@ -1,0 +1,24 @@
+PARSER_BEGIN(Example)
+
+public class Example {
+    public static void main(String[] args) throws ParseException{
+      Example parser = new Example(System.in);
+      parser.Aritm();
+    }
+}
+
+PARSER_END(Example)
+
+SKIP : {
+" " | "\t" | "\r"
+}
+
+TOKEN : {
+< INTEGER : (["0" - "9"])+ >
+| < LF : "\n">
+}
+
+void Aritm() : {}
+{
+<INTEGER> ( ("+" | "-") <INTEGER> )? <LF>
+}
