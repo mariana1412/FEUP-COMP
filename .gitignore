@@ -1,4 +1,5 @@
 *.class
 *.java
-.out/
+out/
 .idea/
+*.iml
