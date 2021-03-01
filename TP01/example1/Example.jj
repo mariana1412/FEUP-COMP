@@ -16,7 +16,7 @@ SKIP : {
 
 //token definition (terminal symbols)
 TOKEN : {
-< INTEGER : (["0" - "9"])+ > //inteiro só pode ser um dígito de 0 a 9
+< INTEGER : (["0" - "9"])+ >
 | < OP : ("+" | "-") >
 | < LF : "\n">
 }
